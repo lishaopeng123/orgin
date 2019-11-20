@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>登陆界面</h3>
+<form th:action="@{/person/findPerson}" method="post">
+    姓名：<input name="pname"><br>
+    密码：<input name="password"><br>
+         <input type="submit" value="登陆">
+</form>
+</body>
+</html>

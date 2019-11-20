@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>展示界面</h3>
+<a th:href="@{/user/toadd}">添加</a>
+<table border="1" cellspacing="0">
+    <tr>
+        <td>编号</td>
+        <td>姓名</td>
+        <td>性别</td>
+        <td>生日</td>
+        <td>操作</td>
+    </tr>
+
+    <tr th:each="u:${list}">
+        <td th:text="${u.id}"></td>
+        <td th:text="${u.name}"></td>
+        <td th:text="${u.sex}"></td>
+        <td th:text="${#dates.format(u.birth,'yyyy-MM-dd')}"></td>
+        <td>
+            <form th:action="@{/user/deleteUser/}+${u.id}" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <input type="submit" value="删除">
+            </form>
+            <a th:href="@{/user/findById/}+${u.id}">修改</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
+
+
+
+
+
+
